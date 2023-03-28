@@ -1,5 +1,6 @@
 package com.selenium.test;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -26,9 +27,9 @@ public class TASK3ONE {
 		WebElement password = driver.findElement(By.id("input-password"));
 		password.sendKeys("Kishore@123");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,250)", "");
-		Thread.sleep(5000);
-		WebElement subscribe = driver.findElement(By.xpath("//*[@id=\"input-newsletter-yes\"]"));
+		js.executeScript("window.scrollBy(0,1250)", "");
+		Thread.sleep(800);
+		WebElement subscribe = driver.findElement(By.id("input-newsletter-yes"));
 		subscribe.click();
 		WebElement agreepolicy =driver.findElement(By.xpath("//*[@id=\"form-register\"]/div/div/div/input"));
 		agreepolicy.click();

@@ -17,17 +17,29 @@ public class TASK3TWO {
 		co.addArguments("--remote-allow-origins=*");
 		WebDriver driver = new ChromeDriver(co);
 		driver.get("https://demo.opencart.com/");
+		driver.manage().window().maximize();
 		Thread.sleep(1000);
-		driver.findElement(By.name("search")).sendKeys("iPhone");
+		driver.findElement(By.xpath("//*[@id=\"search\"]/input")).click();
+		driver.findElement(By.xpath("//*[@id=\"search\"]/button")).click();
+		Thread.sleep(2000);
+		driver.navigate().back();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		WebElement returns = driver.findElement(By.linkText("Returns"));
+//		js.executeScript("window.scrollBy(0,2000)", "");
+//		WebElement returns = driver.findElement(By.linkText("Returns"));
+		WebElement returns =driver.findElement(By.linkText("Returns"));
 		js.executeScript("arguments[0].scrollIntoView();", returns);
 		Thread.sleep(2000);
 		returns.click();
+		driver.navigate().back();
+		Thread.sleep(3000);
 		WebElement giftcertificates=driver.findElement(By.linkText("Gift Certificates"));
-		js.executeScript("arguments[0].scrollIntoView()",giftcertificates);
+		js.executeScript("arguments[0].scrollIntoView();", giftcertificates);
 		Thread.sleep(2000);
 		giftcertificates.click();
+		driver.navigate().back();
+		js.executeScript("window.scrollBy(0,-2500)","");
+		Thread.sleep(5000);
+		driver.close();
 
 	}
 
